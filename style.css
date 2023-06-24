@@ -42,7 +42,10 @@ body {
 	gap: 24px;
 }
 
-.chooseDifSquare {
+input[type='radio'] {
+	display: none;
+}
+label {
 	background: #ffffff;
 	height: 98px;
 	width: 98px;
