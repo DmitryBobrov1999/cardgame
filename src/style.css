@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 @font-face {
@@ -143,4 +144,34 @@ label {
 .cardsString {
     display: flex;
     gap: 15px;
+    perspective: 1000px;
+}
+
+.cardsSolo {
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.cardsSolo:active {
+    transform: scale(0.97);
+    transition: transform 0.2s;
+}
+
+.back-view,
+.front-view {
+    backface-visibility: hidden;
+}
+
+.back-view {
+    position: relative;
+}
+
+.front-view {
+    position: absolute;
+    transform: rotateY(180deg);
+}
+
+.cardsSolo.flip {
+    transform: rotateY(180deg);
 }
