@@ -136,7 +136,7 @@ function cardGame() {
 
                 resetBoard()
             }
-
+            
             function unFlipCards() {
                 lockBoard = true
 
@@ -146,6 +146,9 @@ function cardGame() {
 
                     resetBoard()
                 }, 1500)
+                setTimeout(() => {
+                    alert('Вы проиграли')
+                }, 2000)
             }
 
             function resetBoard() {
