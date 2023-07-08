@@ -144,7 +144,7 @@ function cardGame() {
             checkForMatch()
 
             function checkForMatch() {
-                let isMatch = firstCard.dataset.index === secondCard.dataset.index
+                let isMatch = firstCard.innerHTML === secondCard.innerHTML
                 isMatch ? disableCards() : unFlipCards()
             }
 
