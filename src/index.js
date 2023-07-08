@@ -88,11 +88,31 @@ form.addEventListener('submit', (event) => {
     }
 })
 
+
+function shuffle() {
+    let cards = document.querySelectorAll('.cardsSolo')
+    let containsOne = document.querySelector('.containsOne')
+    let containsTwo = document.querySelector('.containsTwo')
+    cards.forEach((card) => {
+        if(card.contains(containsOne)) {
+            let randomPos1 = Math.floor(Math.random() * 6)
+            card.style.order = randomPos1
+        } else if (card.contains(containsTwo)){
+            let randomPos2 = Math.floor(Math.random() * 12)
+            card.style.order = randomPos2
+        } else {
+            let randomPos3 = Math.floor(Math.random() * 20)
+            card.style.order = randomPos3
+        }
+         card.classList.add('flip')
+    })
+}
+
+
 function cardGameTimeout() {
     let cards = document.querySelectorAll('.cardsSolo')
-    for (const card of cards) {
-        card.classList.add('flip')
-    }
+    shuffle()
+     
     setTimeout(() => {
         for (const card of cards) {
             card.classList.remove('flip')
@@ -104,7 +124,6 @@ function cardGameTimeout() {
 
 function cardGame() {
     let cards = document.querySelectorAll('.cardsSolo')
-
     let hasFlippedCard = false
     let firstCard, secondCard
     let lockBoard = false
@@ -120,13 +139,12 @@ function cardGame() {
                 firstCard = card
                 return
             }
-
             secondCard = card
 
             checkForMatch()
 
             function checkForMatch() {
-                let isMatch = firstCard.innerHTML === secondCard.innerHTML
+                let isMatch = firstCard.dataset.index === secondCard.dataset.index
                 isMatch ? disableCards() : unFlipCards()
             }
 
@@ -136,7 +154,7 @@ function cardGame() {
 
                 resetBoard()
             }
-            
+
             function unFlipCards() {
                 lockBoard = true
 
@@ -156,97 +174,12 @@ function cardGame() {
                     (firstCard, secondCard)
                 ] = [null, null]
             }
+            
         })
     }
 }
 
-const sixCards = `<div class='pageCardsDiv'>
-<div class="timerAndButton">
-<div class="timer"><div class="minAndSek"><p class="min">min</p>
-<p class="sek">sek</p>
-</div><p class="theMainTimer">00.00</p></div>
-<button class="buttonAgain">Начать заново</button>
-</div><div class="allCards">
-<div class="cardsString">
-<div class="cardsSolo">${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo cardsSoloCopyOfOne">${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-</div>
-<div class="cardsString">
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-</div>
-</div>
-</div>`
-
-const twelveCards = `<div class='pageCardsDiv'>
-<div class="timerAndButton">
-<div class="timer"><div class="minAndSek"><p class="min">min</p>
-<p class="sek">sek</p>
-</div><p class="theMainTimer">00.00</p></div>
-<button class="buttonAgain">Начать заново</button>
-</div><div class="allCards">
-<div class="cardsString">
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo cardsSoloCopyOfOne">${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-</div>
-<div class="cardsString">
-<div class="cardsSolo">${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-</div>
-<div class="cardsString">
-<div class="cardsSolo">${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-</div>
-</div>
-</div>`
-
-const twentyCards = `<div class='pageCardsDiv'>
-<div class="timerAndButton">
-<div class="timer"><div class="minAndSek"><p class="min">min</p>
-<p class="sek">sek</p>
-</div><p class="theMainTimer">00.00</p></div>
-<button class="buttonAgain">Начать заново</button>
-</div><div class="allCards">
-<div class="cardsString">
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo cardsSoloCopyOfOne">${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-</div>
-<div class="cardsString">
-<div class="cardsSolo">${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-</div>
-<div class="cardsString">
-<div class="cardsSolo">${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-</div>
-<div class="cardsString">
-<div class="cardsSolo">${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" >${megaRandomForSix()}<img class="back-view" src ="/img/рубашка.svg"></div>
-</div>
-</div>
-</div>`
-
-function megaRandomForSix() {
+let copyOfTheCard = () => {
     const mathNumber = Math.floor(Math.random() * 36)
     if (mathNumber === 0) {
         return oneCard
@@ -357,3 +290,99 @@ function megaRandomForSix() {
         return thirtySixCard
     }
 }
+const copyOne = copyOfTheCard()
+const copyTwo = copyOfTheCard()
+const copyThree = copyOfTheCard()
+const copyFour = copyOfTheCard()
+const copyFive = copyOfTheCard()
+const copySix = copyOfTheCard()
+const copySeven = copyOfTheCard()
+const copyEight = copyOfTheCard()
+const copyNine = copyOfTheCard()
+const copyTen = copyOfTheCard()
+
+const sixCards = `<div class='pageCardsDiv'>
+<div class="timerAndButton">
+<div class="timer"><div class="minAndSek"><p class="min">min</p>
+<p class="sek">sek</p>
+</div><p class="theMainTimer">00.00</p></div>
+<button class="buttonAgain">Начать заново</button>
+</div><div class="allCards">
+<div class="cardsString">
+<div class="cardsSolo containsOne" data-index='one'>${copyOne}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsOne" data-index='two'>${copyTwo}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsOne" data-index='three' >${copyThree}<img class="back-view" src ="/img/рубашка.svg"></div>
+</div>
+<div class="cardsString">
+<div class="cardsSolo containsOne" data-index='one' >${copyOne}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsOne" data-index='two' >${copyTwo}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsOne" data-index='three' >${copyThree}<img class="back-view" src ="/img/рубашка.svg"></div>
+</div>
+</div>
+</div>`
+
+const twelveCards = `<div class='pageCardsDiv'>
+<div class="timerAndButton">
+<div class="timer"><div class="minAndSek"><p class="min">min</p>
+<p class="sek">sek</p>
+</div><p class="theMainTimer">00.00</p></div>
+<button class="buttonAgain">Начать заново</button>
+</div><div class="allCards">
+<div class="cardsString">
+<div class="cardsSolo containsTwo" data-index='one' >${copyOne}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='two'>${copyTwo}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='three'>${copyThree}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='four'>${copyFour}<img class="back-view" src ="/img/рубашка.svg"></div>
+</div>
+<div class="cardsString">
+<div class="cardsSolo containsTwo" data-index='one'>${copyOne}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='two'>${copyTwo}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='three'>${copyThree}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='four'>${copyFour}<img class="back-view" src ="/img/рубашка.svg"></div>
+</div>
+<div class="cardsString">
+<div class="cardsSolo containsTwo" data-index='five'>${copyFive}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='five'>${copyFive}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='six'>${copySix}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='six'>${copySix}<img class="back-view" src ="/img/рубашка.svg"></div>
+</div>
+</div>
+</div>`
+
+const twentyCards = `<div class='pageCardsDiv'>
+<div class="timerAndButton">
+<div class="timer"><div class="minAndSek"><p class="min">min</p>
+<p class="sek">sek</p>
+</div><p class="theMainTimer">00.00</p></div>
+<button class="buttonAgain">Начать заново</button>
+</div><div class="allCards">
+<div class="cardsString">
+<div class="cardsSolo" data-index='one'>${copyOne}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='one'>${copyOne}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='two'>${copyTwo}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='two'>${copyTwo}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='three'>${copyThree}<img class="back-view" src ="/img/рубашка.svg"></div>
+</div>
+<div class="cardsString">
+<div class="cardsSolo" data-index='three'>${copyThree}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='four'>${copyFour}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='four'>${copyFour}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='five'>${copyFive}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='five'>${copyFive}<img class="back-view" src ="/img/рубашка.svg"></div>
+</div>
+<div class="cardsString">
+<div class="cardsSolo" data-index='six'>${copySix}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='six'>${copySix}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='seven'>${copySeven}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='seven'>${copySeven}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='eight'>${copyEight}<img class="back-view" src ="/img/рубашка.svg"></div>
+</div>
+<div class="cardsString">
+<div class="cardsSolo" data-index='eight'>${copyEight}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='nine'>${copyNine}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='nine'>${copyNine}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='ten'>${copyTen}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='ten'>${copyTen}<img class="back-view" src ="/img/рубашка.svg"></div>
+</div>
+</div>
+</div>`
