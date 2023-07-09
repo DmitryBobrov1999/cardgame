@@ -2,13 +2,13 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
-const mode =
-    process.env.NODE_ENV === 'production' ? 'production' : 'development'
+const isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
     entry: './src/index.js',
-    mode,
+    mode: isProduction ? 'production' : 'development',
     module: {
         rules: [
             {
@@ -28,11 +28,15 @@ module.exports = {
     optimization: {
         minimizer: ['...', new CssMinimizerPlugin()],
     },
-    devtool: process.env.NODE_ENV === 'production' ? false : 'source-map',
+    devtool: isProduction ? 'hidden-source-map' : 'source-map',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
         clean: true,
     },
-    plugins: [new MiniCssExtractPlugin(), new HtmlWebpackPlugin()],
+    plugins: [
+        new CopyPlugin({ patterns: [{ from: './img', to: './img' }] }),
+        new MiniCssExtractPlugin(),
+        new HtmlWebpackPlugin({ template: './src/index.html' }),
+    ],
 }

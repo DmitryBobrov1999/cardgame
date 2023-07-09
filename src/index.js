@@ -1,3 +1,5 @@
+import './style.css'
+
 let radios = document.getElementsByName('choose_input')
 let difText = document.querySelector('.chooseDifText')
 let label1 = document.querySelector('.label_1')
