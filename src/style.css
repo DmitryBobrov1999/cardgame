@@ -120,6 +120,7 @@ label {
     line-height: 72px;
     letter-spacing: 0;
     color: #fff;
+    display: flex;
 }
 
 .buttonAgain {
@@ -174,4 +175,68 @@ label {
 
 .cardsSolo.flip {
     transform: rotateY(180deg);
+}
+
+.fakeBody {
+    opacity: 0.2;
+}
+
+.result {
+    margin-top: 158px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 480px;
+    height: 459px;
+    border-radius: 12px;
+    background: #c2f5ff;
+    position: absolute;
+    z-index: 1;
+}
+
+.finalImg {
+    display: flex;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+}
+
+.timeText {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 48px;
+    letter-spacing: 0;
+    color: #004980;
+    padding-top: 9px;
+    padding-bottom: 28px;
+}
+
+.time {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0;
+    color: #000;
+    padding-bottom: 10px;
+}
+
+.finalTimer {
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 72px;
+    letter-spacing: 0;
+    color: #000;
+}
+
+.restartButton {
+    background: #7ac100;
+    width: 246px;
+    height: 50px;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 400;
+    border-color: #7ac100;
+    margin-top: 40px;
 }

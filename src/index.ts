@@ -1,16 +1,16 @@
 import './style.css'
 
 let radios = document.getElementsByName('choose_input')
-let difText = document.querySelector('.chooseDifText')
-let label1 = document.querySelector('.label_1')
-let label2 = document.querySelector('.label_2')
-let label3 = document.querySelector('.label_3')
+let difText = document.querySelector<HTMLElement>('.chooseDifText')
+let label1 = document.querySelector<HTMLElement>('.label_1')
+let label2 = document.querySelector<HTMLElement>('.label_2')
+let label3 = document.querySelector<HTMLElement>('.label_3')
 let form = document.querySelector('.lightBlueSquare')
 let BODY = document.querySelector('.body')
 
-let chooseInput1 = document.getElementById('choose_input_1')
-let chooseInput2 = document.getElementById('choose_input_2')
-let chooseInput3 = document.getElementById('choose_input_3')
+let chooseInput1 = document.getElementById('choose_input_1') as HTMLInputElement
+let chooseInput2 = document.getElementById('choose_input_2') as HTMLInputElement
+let chooseInput3 = document.getElementById('choose_input_3') as HTMLInputElement
 
 const oneCard = `<img class="front-view" src ='/img/6 крести.svg'>`
 const twoCard = `<img class="front-view" src ='/img/6 бубны.svg'>`
@@ -53,82 +53,110 @@ for (const radio of radios) {
     radio.onchange = getChooseDif
 }
 
-function getChooseDif() {
+function getChooseDif(this: any) {
     if (this.value == 1) {
-        difText.innerHTML = 'Легкий уровень'
-        label1.style.background = '#7CFC00'
-        label2.style.background = '#ffffff'
-        label3.style.background = '#ffffff'
+        difText!.innerHTML = 'Легкий уровень'
+        label1!.style.background = '#7CFC00'
+        label2!.style.background = '#ffffff'
+        label3!.style.background = '#ffffff'
     }
     if (this.value == 2) {
-        difText.innerHTML = 'Средний уровень'
-        label2.style.background = '#FFFF00'
-        label1.style.background = '#ffffff'
-        label3.style.background = '#ffffff'
+        difText!.innerHTML = 'Средний уровень'
+        label2!.style.background = '#FFFF00'
+        label1!.style.background = '#ffffff'
+        label3!.style.background = '#ffffff'
     }
     if (this.value == 3) {
-        difText.innerHTML = 'Сложный уровень'
-        label3.style.background = '#FF0000'
-        label1.style.background = '#ffffff'
-        label2.style.background = '#ffffff'
+        difText!.innerHTML = 'Сложный уровень'
+        label3!.style.background = '#FF0000'
+        label1!.style.background = '#ffffff'
+        label2!.style.background = '#ffffff'
     }
 }
 
-form.addEventListener('submit', (event) => {
+form?.addEventListener('submit', (event) => {
     event.preventDefault()
-    if (chooseInput1.checked) {
-        BODY.innerHTML = sixCards
+    if (chooseInput1!.checked) {
+        BODY!.innerHTML = sixCards
         cardGameTimeout()
     }
-    if (chooseInput2.checked) {
-        BODY.innerHTML = twelveCards
+    if (chooseInput2!.checked) {
+        BODY!.innerHTML = twelveCards
         cardGameTimeout()
     }
-    if (chooseInput3.checked) {
-        BODY.innerHTML = twentyCards
+    if (chooseInput3!.checked) {
+        BODY!.innerHTML = twentyCards
         cardGameTimeout()
     }
 })
-
 
 function shuffle() {
     let cards = document.querySelectorAll('.cardsSolo')
     let containsOne = document.querySelector('.containsOne')
     let containsTwo = document.querySelector('.containsTwo')
     cards.forEach((card) => {
-        if(card.contains(containsOne)) {
+        if (card.contains(containsOne)) {
             let randomPos1 = Math.floor(Math.random() * 6)
             card.style.order = randomPos1
-        } else if (card.contains(containsTwo)){
+        } else if (card.contains(containsTwo)) {
             let randomPos2 = Math.floor(Math.random() * 12)
             card.style.order = randomPos2
         } else {
             let randomPos3 = Math.floor(Math.random() * 20)
             card.style.order = randomPos3
         }
-         card.classList.add('flip')
+        card.classList.add('flip')
     })
 }
-
 
 function cardGameTimeout() {
     let cards = document.querySelectorAll('.cardsSolo')
     shuffle()
-     
+
     setTimeout(() => {
         for (const card of cards) {
             card.classList.remove('flip')
         }
 
         cardGame()
-    }, 5000)
+    }, 1000)
 }
 
 function cardGame() {
     let cards = document.querySelectorAll('.cardsSolo')
-    let hasFlippedCard = false
-    let firstCard, secondCard
-    let lockBoard = false
+    let hasFlippedCard: boolean | undefined | null = false
+    let firstCard: Element, secondCard: Element
+    let lockBoard: boolean | undefined | null = false
+    let goingToZeroLength = cards.length
+    const timerMinutes = document.querySelector('.time-minutes'),
+        timerSeconds = document.querySelector('.time-seconds')
+    const restartFromTheField = document.querySelector('.buttonAgain')
+    restartFromTheField?.addEventListener('click', () => {
+        location.reload()
+    })
+    let interval
+    let minutes = 0
+    let seconds = 0
+
+    const startTimer = () => {
+        seconds++
+        timerSeconds!.innerHTML = '0' + seconds
+        if (seconds > 9) {
+            timerSeconds.innerHTML = seconds
+        }
+        if (seconds > 59) {
+            minutes++
+            timerMinutes!.innerHTML = '0' + minutes
+
+            seconds = 0
+            timerSeconds!.innerHTML = '0' + seconds
+        }
+        if (minutes > 9) {
+            timerMinutes.innerHTML = minutes
+        }
+    }
+    clearInterval(interval)
+    interval = setInterval(startTimer, 1000)
 
     for (const card of cards) {
         card.addEventListener('click', function flipCard() {
@@ -154,6 +182,27 @@ function cardGame() {
                 firstCard.removeEventListener('click', flipCard)
                 secondCard.removeEventListener('click', flipCard)
 
+                setTimeout(() => {
+                    goingToZeroLength -= 2
+                    console.log(goingToZeroLength)
+                    if (goingToZeroLength === 0) {
+                        let result =
+                            timerMinutes?.innerHTML +
+                            ':' +
+                            timerSeconds?.innerHTML
+
+                        BODY!.innerHTML = theGoodResult
+                        let TheWinSelector =
+                            document.querySelector('.finalTimerForWin')
+                        TheWinSelector!.innerHTML = `${result}`
+                        const restartButton =
+                            document.querySelector('.restartButton')
+                        restartButton?.addEventListener('click', () => {
+                            location.reload()
+                        })
+                    }
+                }, 500)
+
                 resetBoard()
             }
 
@@ -167,16 +216,24 @@ function cardGame() {
                     resetBoard()
                 }, 1500)
                 setTimeout(() => {
-                    alert('Вы проиграли')
-                }, 2000)
+                    let result =
+                        timerMinutes?.innerHTML + ':' + timerSeconds?.innerHTML
+
+                    BODY!.innerHTML = theBadResult
+                    let theLoseSelector =
+                        document.querySelector('.finalTimerForLose')
+                    theLoseSelector!.innerHTML = `${result}`
+                    const restartButton =
+                        document.querySelector('.restartButton')
+                    restartButton?.addEventListener('click', () => {
+                        location.reload()
+                    })
+                }, 500)
             }
 
             function resetBoard() {
-                ;[hasFlippedCard, lockBoard] = [false, false][
-                    (firstCard, secondCard)
-                ] = [null, null]
+                ;[hasFlippedCard, lockBoard] = [false, false]
             }
-            
         })
     }
 }
@@ -307,7 +364,15 @@ const sixCards = `<div class='pageCardsDiv'>
 <div class="timerAndButton">
 <div class="timer"><div class="minAndSek"><p class="min">min</p>
 <p class="sek">sek</p>
-</div><p class="theMainTimer">00.00</p></div>
+</div>
+
+<div class="theMainTimer">
+<span class="interval time-minutes">00</span>
+<span class="colon">:</span>
+<span class="interval time-seconds">00</span>
+</div>
+
+</div>
 <button class="buttonAgain">Начать заново</button>
 </div><div class="allCards">
 <div class="cardsString">
@@ -327,7 +392,15 @@ const twelveCards = `<div class='pageCardsDiv'>
 <div class="timerAndButton">
 <div class="timer"><div class="minAndSek"><p class="min">min</p>
 <p class="sek">sek</p>
-</div><p class="theMainTimer">00.00</p></div>
+</div>
+
+<div class="theMainTimer">
+<span class="interval time-minutes">00</span>
+<span class="colon">:</span>
+<span class="interval time-seconds">00</span>
+</div>
+
+</div>
 <button class="buttonAgain">Начать заново</button>
 </div><div class="allCards">
 <div class="cardsString">
@@ -355,7 +428,15 @@ const twentyCards = `<div class='pageCardsDiv'>
 <div class="timerAndButton">
 <div class="timer"><div class="minAndSek"><p class="min">min</p>
 <p class="sek">sek</p>
-</div><p class="theMainTimer">00.00</p></div>
+</div>
+
+<div class="theMainTimer">
+<span class="interval time-minutes">00</span>
+<span class="colon">:</span>
+<span class="interval time-seconds">00</span>
+</div>
+
+</div>
 <button class="buttonAgain">Начать заново</button>
 </div><div class="allCards">
 <div class="cardsString">
@@ -385,6 +466,132 @@ const twentyCards = `<div class='pageCardsDiv'>
 <div class="cardsSolo" data-index='nine'>${copyNine}<img class="back-view" src ="/img/рубашка.svg"></div>
 <div class="cardsSolo" data-index='ten'>${copyTen}<img class="back-view" src ="/img/рубашка.svg"></div>
 <div class="cardsSolo" data-index='ten'>${copyTen}<img class="back-view" src ="/img/рубашка.svg"></div>
+</div>
+</div>
+</div>`
+
+const theGoodResult = `<div class="result">
+<img class="celebration" src ="/img/celebration.svg">
+<h1 class="timeText">Вы выиграли!</h1>
+<h6 class="time">Затраченное время:</h6>
+<h3 class="finalTimerForWin">01.20</h3>
+<button type="submit" class="restartButton">Играть снова</button>
+</div>
+<div class="fakeBody">
+<div class='pageCardsDiv'>
+<div class="timerAndButton">
+<div class="timer"><div class="minAndSek"><p class="min">min</p>
+<p class="sek">sek</p>
+</div><p class="theMainTimer">00.00</p></div>
+<button class="buttonAgain">Начать заново</button>
+</div><div class="allCards">
+<div class="cardsString">
+<div class="cardsSolo"><img class="cardsImg" src ="/img/туз пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/король пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/дама пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/валет пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/10 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/9 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/8 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/7 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/6 пики.svg"></div>
+</div>
+<div class="cardsString">
+<div class="cardsSolo"><img class="cardsImg" src ="/img/туз черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/король черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/дама черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/валет черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/10 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/9 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/8 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/7 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/6 черви.svg"></div>
+</div>
+<div class="cardsString">
+<div class="cardsSolo"><img class="cardsImg" src ="/img/туз бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/король бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/дама бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/валет бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/10 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/9 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/8 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/7 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/6 бубны.svg"></div>
+</div>
+<div class="cardsString">
+<div class="cardsSolo"><img class="cardsImg" src ="/img/туз крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/король крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/дама крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/валет крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/10 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/9 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/8 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/7 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/6 крести.svg"></div>
+</div>
+</div>
+</div>
+</div>`
+
+const theBadResult = `<div class="result">
+<img class="finalImg" src ="/img/dead.svg">
+<h1 class="timeText">Вы проиграли!</h1>
+<h6 class="time">Затраченное время:</h6>
+<h3 class="finalTimerForLose">00.00</h3>
+<button type="submit" class="restartButton">Играть снова</button>
+</div>
+<div class="fakeBody">
+<div class='pageCardsDiv'>
+<div class="timerAndButton">
+<div class="timer"><div class="minAndSek"><p class="min">min</p>
+<p class="sek">sek</p>
+</div><p class="theMainTimer">00.00</p></div>
+<button class="buttonAgain">Начать заново</button>
+</div><div class="allCards">
+<div class="cardsString">
+<div class="cardsSolo"><img class="cardsImg" src ="/img/туз пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/король пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/дама пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/валет пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/10 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/9 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/8 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/7 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/6 пики.svg"></div>
+</div>
+<div class="cardsString">
+<div class="cardsSolo"><img class="cardsImg" src ="/img/туз черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/король черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/дама черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/валет черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/10 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/9 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/8 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/7 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/6 черви.svg"></div>
+</div>
+<div class="cardsString">
+<div class="cardsSolo"><img class="cardsImg" src ="/img/туз бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/король бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/дама бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/валет бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/10 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/9 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/8 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/7 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/6 бубны.svg"></div>
+</div>
+<div class="cardsString">
+<div class="cardsSolo"><img class="cardsImg" src ="/img/туз крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/король крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/дама крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/валет крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/10 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/9 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/8 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/7 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="/img/6 крести.svg"></div>
+</div>
 </div>
 </div>
 </div>`
