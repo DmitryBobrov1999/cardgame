@@ -130,17 +130,17 @@ function shuffle() {
         if (card.contains(containsOne)) {
             let randomPos1 = Math.floor(Math.random() * 6)
             if (card instanceof HTMLElement) {
-                card.style.order = randomPos1
+                card.style.order = String(randomPos1)
             }
         } else if (card.contains(containsTwo)) {
             let randomPos2 = Math.floor(Math.random() * 12)
             if (card instanceof HTMLElement) {
-                card.style.order = randomPos2
+                card.style.order = String(randomPos2)
             }
         } else {
             let randomPos3 = Math.floor(Math.random() * 20)
             if (card instanceof HTMLElement) {
-                card.style.order = randomPos3
+                card.style.order = String(randomPos3)
             }
         }
         card.classList.add('flip')
@@ -187,7 +187,9 @@ function cardGame() {
             timerSeconds.innerHTML = '0' + seconds
         }
         if (seconds > 9) {
-            timerSeconds.innerHTML = seconds
+            if(timerSeconds) {
+                timerSeconds.innerHTML = String(seconds)
+            }
         }
         if (seconds > 59) {
             minutes++
@@ -199,7 +201,7 @@ function cardGame() {
             }
         }
         if (minutes > 9) {
-            timerMinutes.innerHTML = minutes
+            timerMinutes.innerHTML = String(minutes)
         }
     }
     clearInterval(interval)
