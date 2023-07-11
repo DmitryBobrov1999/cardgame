@@ -55,40 +55,72 @@ for (const radio of radios) {
 
 function getChooseDif(this: any) {
     if (this.value == 1) {
-        difText!.innerHTML = 'Легкий уровень'
-        label1!.style.background = '#7CFC00'
-        label2!.style.background = '#ffffff'
-        label3!.style.background = '#ffffff'
+        if (difText) {
+            difText.innerHTML = 'Легкий уровень'
+        }
+        if (label1) {
+            label1.style.background = '#7CFC00'
+        }
+        if (label2) {
+            label2.style.background = '#ffffff'
+        }
+        if (label3) {
+            label3.style.background = '#ffffff'
+        }
     }
     if (this.value == 2) {
-        difText!.innerHTML = 'Средний уровень'
-        label2!.style.background = '#FFFF00'
-        label1!.style.background = '#ffffff'
-        label3!.style.background = '#ffffff'
+        if (difText) {
+            difText.innerHTML = 'Средний уровень'
+        }
+        if (label2) {
+            label2.style.background = '#FFFF00'
+        }
+        if (label1) {
+            label1.style.background = '#ffffff'
+        }
+        if (label3) {
+            label3.style.background = '#ffffff'
+        }
     }
     if (this.value == 3) {
-        difText!.innerHTML = 'Сложный уровень'
-        label3!.style.background = '#FF0000'
-        label1!.style.background = '#ffffff'
-        label2!.style.background = '#ffffff'
+        if (difText) {
+            difText.innerHTML = 'Сложный уровень'
+        }
+        if (label3) {
+            label3.style.background = '#FF0000'
+        }
+        if (label1) {
+            label1.style.background = '#ffffff'
+        }
+        if (label2) {
+            label2.style.background = '#ffffff'
+        }
     }
 }
 
-form?.addEventListener('submit', (event) => {
-    event.preventDefault()
-    if (chooseInput1!.checked) {
-        BODY!.innerHTML = sixCards
-        cardGameTimeout()
-    }
-    if (chooseInput2!.checked) {
-        BODY!.innerHTML = twelveCards
-        cardGameTimeout()
-    }
-    if (chooseInput3!.checked) {
-        BODY!.innerHTML = twentyCards
-        cardGameTimeout()
-    }
-})
+if (form) {
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        if (chooseInput1.checked) {
+            if (BODY) {
+                BODY.innerHTML = sixCards
+            }
+            cardGameTimeout()
+        }
+        if (chooseInput2.checked) {
+            if (BODY) {
+                BODY.innerHTML = twelveCards
+            }
+            cardGameTimeout()
+        }
+        if (chooseInput3.checked) {
+            if (BODY) {
+                BODY.innerHTML = twentyCards
+            }
+            cardGameTimeout()
+        }
+    })
+}
 
 function shuffle() {
     let cards = document.querySelectorAll('.cardsSolo')
@@ -97,13 +129,19 @@ function shuffle() {
     cards.forEach((card) => {
         if (card.contains(containsOne)) {
             let randomPos1 = Math.floor(Math.random() * 6)
-            card.style.order = randomPos1
+            if (card instanceof HTMLElement) {
+                card.style.order = randomPos1
+            }
         } else if (card.contains(containsTwo)) {
             let randomPos2 = Math.floor(Math.random() * 12)
-            card.style.order = randomPos2
+            if (card instanceof HTMLElement) {
+                card.style.order = randomPos2
+            }
         } else {
             let randomPos3 = Math.floor(Math.random() * 20)
-            card.style.order = randomPos3
+            if (card instanceof HTMLElement) {
+                card.style.order = randomPos3
+            }
         }
         card.classList.add('flip')
     })
@@ -130,26 +168,35 @@ function cardGame() {
     let goingToZeroLength = cards.length
     const timerMinutes = document.querySelector('.time-minutes'),
         timerSeconds = document.querySelector('.time-seconds')
-    const restartFromTheField = document.querySelector('.buttonAgain')
-    restartFromTheField?.addEventListener('click', () => {
-        location.reload()
-    })
+    const restartFromTheField =
+        document.querySelector<HTMLElement>('.buttonAgain')
+    if (restartFromTheField) {
+        restartFromTheField.addEventListener('click', () => {
+            location.reload()
+        })
+    }
+
     let interval
     let minutes = 0
     let seconds = 0
 
     const startTimer = () => {
+        if (!timerMinutes) return
         seconds++
-        timerSeconds!.innerHTML = '0' + seconds
+        if (timerSeconds) {
+            timerSeconds.innerHTML = '0' + seconds
+        }
         if (seconds > 9) {
             timerSeconds.innerHTML = seconds
         }
         if (seconds > 59) {
             minutes++
-            timerMinutes!.innerHTML = '0' + minutes
+            timerMinutes.innerHTML = '0' + minutes
 
             seconds = 0
-            timerSeconds!.innerHTML = '0' + seconds
+            if (timerSeconds) {
+                timerSeconds.innerHTML = '0' + seconds
+            }
         }
         if (minutes > 9) {
             timerMinutes.innerHTML = minutes
@@ -186,20 +233,26 @@ function cardGame() {
                     goingToZeroLength -= 2
                     console.log(goingToZeroLength)
                     if (goingToZeroLength === 0) {
-                        let result =
-                            timerMinutes?.innerHTML +
-                            ':' +
-                            timerSeconds?.innerHTML
+                        if (timerMinutes && timerSeconds && BODY) {
+                            let result =
+                                timerMinutes.innerHTML +
+                                ':' +
+                                timerSeconds.innerHTML
 
-                        BODY!.innerHTML = theGoodResult
-                        let TheWinSelector =
-                            document.querySelector('.finalTimerForWin')
-                        TheWinSelector!.innerHTML = `${result}`
+                            BODY.innerHTML = theGoodResult
+                            let TheWinSelector =
+                                document.querySelector('.finalTimerForWin')
+                            if (TheWinSelector) {
+                                TheWinSelector.innerHTML = `${result}`
+                            }
+                        }
                         const restartButton =
                             document.querySelector('.restartButton')
-                        restartButton?.addEventListener('click', () => {
-                            location.reload()
-                        })
+                        if (restartButton) {
+                            restartButton.addEventListener('click', () => {
+                                location.reload()
+                            })
+                        }
                     }
                 }, 500)
 
@@ -216,18 +269,26 @@ function cardGame() {
                     resetBoard()
                 }, 1500)
                 setTimeout(() => {
-                    let result =
-                        timerMinutes?.innerHTML + ':' + timerSeconds?.innerHTML
+                    if (timerMinutes && timerSeconds && BODY) {
+                        let result =
+                            timerMinutes.innerHTML +
+                            ':' +
+                            timerSeconds.innerHTML
 
-                    BODY!.innerHTML = theBadResult
-                    let theLoseSelector =
-                        document.querySelector('.finalTimerForLose')
-                    theLoseSelector!.innerHTML = `${result}`
+                        BODY.innerHTML = theBadResult
+                        let theLoseSelector =
+                            document.querySelector('.finalTimerForLose')
+                        if (theLoseSelector) {
+                            theLoseSelector.innerHTML = `${result}`
+                        }
+                    }
                     const restartButton =
                         document.querySelector('.restartButton')
-                    restartButton?.addEventListener('click', () => {
-                        location.reload()
-                    })
+                    if (restartButton) {
+                        restartButton.addEventListener('click', () => {
+                            location.reload()
+                        })
+                    }
                 }, 500)
             }
 
