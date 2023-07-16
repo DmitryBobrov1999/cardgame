@@ -53,8 +53,6 @@ for (const radio of radios) {
     radio.onchange = getChooseDif
 }
 
-export const sum = (a: number, b: number) => a + b
-
 function getChooseDif(this: any) {
     if (this.value == 1) {
         if (difText) {
