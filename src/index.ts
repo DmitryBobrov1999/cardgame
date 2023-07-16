@@ -157,7 +157,7 @@ function cardGameTimeout() {
         }
 
         cardGame()
-    }, 1000)
+    }, 5000)
 }
 
 function cardGame() {
@@ -187,7 +187,7 @@ function cardGame() {
             timerSeconds.innerHTML = '0' + seconds
         }
         if (seconds > 9) {
-            if(timerSeconds) {
+            if (timerSeconds) {
                 timerSeconds.innerHTML = String(seconds)
             }
         }
