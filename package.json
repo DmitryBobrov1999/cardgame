@@ -16,15 +16,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/DmitryBobrov1999/cardGame.git"
+        "url": "git+https://github.com/DmitryBobrov1999/cardgame.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/DmitryBobrov1999/cardGame/issues"
+        "url": "https://github.com/DmitryBobrov1999/cardgame/issues"
     },
-    "homepage": "https://github.com/DmitryBobrov1999/cardGame#readme",
+    "homepage": "https://github.com/DmitryBobrov1999/cardgame#readme",
     "devDependencies": {
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react-native": "^12.1.2",
