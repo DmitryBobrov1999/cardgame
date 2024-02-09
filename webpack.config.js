@@ -7,7 +7,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
-    entry: './index.ts',
+    entry: './src/index.ts',
     mode: isProduction ? 'production' : 'development',
     module: {
         rules: [
@@ -45,6 +45,6 @@ module.exports = {
     plugins: [
         new CopyPlugin({ patterns: [{ from: './img', to: './img' }] }),
         new MiniCssExtractPlugin(),
-        new HtmlWebpackPlugin({ template: './index.html' }),
+        new HtmlWebpackPlugin({ template: './src/index.html' }),
     ],
 }
