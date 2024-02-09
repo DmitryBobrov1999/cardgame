@@ -471,14 +471,14 @@ const sixCards = `<div class='pageCardsDiv'>
 <button class="buttonAgain">Начать заново</button>
 </div><div class="allCards">
 <div class="cardsString">
-<div class="cardsSolo containsOne" data-index='one'>${copyOne}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo containsOne" data-index='two'>${copyTwo}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo containsOne" data-index='three' >${copyThree}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsOne" data-index='one'>${copyOne}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo containsOne" data-index='two'>${copyTwo}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo containsOne" data-index='three' >${copyThree}<img class="back-view" src ="./img/рубашка.svg"></div>
 </div>
 <div class="cardsString">
-<div class="cardsSolo containsOne" data-index='one' >${copyOne}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo containsOne" data-index='two' >${copyTwo}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo containsOne" data-index='three' >${copyThree}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsOne" data-index='one' >${copyOne}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo containsOne" data-index='two' >${copyTwo}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo containsOne" data-index='three' >${copyThree}<img class="back-view" src ="./img/рубашка.svg"></div>
 </div>
 </div>
 </div>`;
@@ -498,22 +498,22 @@ const twelveCards = `<div class='pageCardsDiv'>
 <button class="buttonAgain">Начать заново</button>
 </div><div class="allCards">
 <div class="cardsString">
-<div class="cardsSolo containsTwo" data-index='one' >${copyOne}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo containsTwo" data-index='two'>${copyTwo}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo containsTwo" data-index='three'>${copyThree}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo containsTwo" data-index='four'>${copyFour}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='one' >${copyOne}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='two'>${copyTwo}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='three'>${copyThree}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='four'>${copyFour}<img class="back-view" src ="./img/рубашка.svg"></div>
 </div>
 <div class="cardsString">
-<div class="cardsSolo containsTwo" data-index='one'>${copyOne}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo containsTwo" data-index='two'>${copyTwo}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo containsTwo" data-index='three'>${copyThree}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo containsTwo" data-index='four'>${copyFour}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='one'>${copyOne}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='two'>${copyTwo}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='three'>${copyThree}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='four'>${copyFour}<img class="back-view" src ="./img/рубашка.svg"></div>
 </div>
 <div class="cardsString">
-<div class="cardsSolo containsTwo" data-index='five'>${copyFive}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo containsTwo" data-index='five'>${copyFive}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo containsTwo" data-index='six'>${copySix}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo containsTwo" data-index='six'>${copySix}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='five'>${copyFive}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='five'>${copyFive}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='six'>${copySix}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo containsTwo" data-index='six'>${copySix}<img class="back-view" src ="./img/рубашка.svg"></div>
 </div>
 </div>
 </div>`;
@@ -533,32 +533,32 @@ const twentyCards = `<div class='pageCardsDiv'>
 <button class="buttonAgain">Начать заново</button>
 </div><div class="allCards">
 <div class="cardsString">
-<div class="cardsSolo" data-index='one'>${copyOne}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" data-index='one'>${copyOne}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" data-index='two'>${copyTwo}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" data-index='two'>${copyTwo}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" data-index='three'>${copyThree}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='one'>${copyOne}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='one'>${copyOne}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='two'>${copyTwo}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='two'>${copyTwo}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='three'>${copyThree}<img class="back-view" src ="./img/рубашка.svg"></div>
 </div>
 <div class="cardsString">
-<div class="cardsSolo" data-index='three'>${copyThree}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" data-index='four'>${copyFour}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" data-index='four'>${copyFour}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" data-index='five'>${copyFive}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" data-index='five'>${copyFive}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='three'>${copyThree}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='four'>${copyFour}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='four'>${copyFour}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='five'>${copyFive}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='five'>${copyFive}<img class="back-view" src ="./img/рубашка.svg"></div>
 </div>
 <div class="cardsString">
-<div class="cardsSolo" data-index='six'>${copySix}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" data-index='six'>${copySix}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" data-index='seven'>${copySeven}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" data-index='seven'>${copySeven}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" data-index='eight'>${copyEight}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='six'>${copySix}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='six'>${copySix}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='seven'>${copySeven}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='seven'>${copySeven}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='eight'>${copyEight}<img class="back-view" src ="./img/рубашка.svg"></div>
 </div>
 <div class="cardsString">
-<div class="cardsSolo" data-index='eight'>${copyEight}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" data-index='nine'>${copyNine}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" data-index='nine'>${copyNine}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" data-index='ten'>${copyTen}<img class="back-view" src ="/img/рубашка.svg"></div>
-<div class="cardsSolo" data-index='ten'>${copyTen}<img class="back-view" src ="/img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='eight'>${copyEight}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='nine'>${copyNine}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='nine'>${copyNine}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='ten'>${copyTen}<img class="back-view" src ="./img/рубашка.svg"></div>
+<div class="cardsSolo" data-index='ten'>${copyTen}<img class="back-view" src ="./img/рубашка.svg"></div>
 </div>
 </div>
 </div>`;
@@ -578,54 +578,54 @@ const theGoodResult = `<div class="result">
 <button class="buttonAgain">Начать заново</button>
 </div><div class="allCards">
 <div class="cardsString">
-<div class="cardsSolo"><img class="cardsImg" src ="/img/туз пики.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/король пики.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/дама пики.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/валет пики.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/10 пики.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/9 пики.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/8 пики.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/7 пики.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/6 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/туз пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/король пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/дама пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/валет пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/10 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/9 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/8 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/7 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/6 пики.svg"></div>
 </div>
 <div class="cardsString">
-<div class="cardsSolo"><img class="cardsImg" src ="/img/туз черви.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/король черви.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/дама черви.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/валет черви.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/10 черви.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/9 черви.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/8 черви.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/7 черви.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/6 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/туз черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/король черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/дама черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/валет черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/10 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/9 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/8 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/7 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/6 черви.svg"></div>
 </div>
 <div class="cardsString">
-<div class="cardsSolo"><img class="cardsImg" src ="/img/туз бубны.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/король бубны.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/дама бубны.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/валет бубны.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/10 бубны.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/9 бубны.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/8 бубны.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/7 бубны.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/6 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/туз бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/король бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/дама бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/валет бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/10 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/9 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/8 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/7 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/6 бубны.svg"></div>
 </div>
 <div class="cardsString">
-<div class="cardsSolo"><img class="cardsImg" src ="/img/туз крести.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/король крести.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/дама крести.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/валет крести.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/10 крести.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/9 крести.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/8 крести.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/7 крести.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/6 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/туз крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/король крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/дама крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/валет крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/10 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/9 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/8 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/7 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/6 крести.svg"></div>
 </div>
 </div>
 </div>
 </div>`;
 const theBadResult = `<div class="result">
-<img class="finalImg" src ="/img/dead.svg">
+<img class="finalImg" src ="./img/dead.svg">
 <h1 class="timeText">Вы проиграли!</h1>
 <h6 class="time">Затраченное время:</h6>
 <h3 class="finalTimerForLose">00.00</h3>
@@ -640,48 +640,48 @@ const theBadResult = `<div class="result">
 <button class="buttonAgain">Начать заново</button>
 </div><div class="allCards">
 <div class="cardsString">
-<div class="cardsSolo"><img class="cardsImg" src ="/img/туз пики.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/король пики.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/дама пики.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/валет пики.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/10 пики.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/9 пики.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/8 пики.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/7 пики.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/6 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/туз пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/король пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/дама пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/валет пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/10 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/9 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/8 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/7 пики.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/6 пики.svg"></div>
 </div>
 <div class="cardsString">
-<div class="cardsSolo"><img class="cardsImg" src ="/img/туз черви.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/король черви.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/дама черви.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/валет черви.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/10 черви.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/9 черви.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/8 черви.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/7 черви.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/6 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/туз черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/король черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/дама черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/валет черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/10 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/9 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/8 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/7 черви.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/6 черви.svg"></div>
 </div>
 <div class="cardsString">
-<div class="cardsSolo"><img class="cardsImg" src ="/img/туз бубны.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/король бубны.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/дама бубны.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/валет бубны.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/10 бубны.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/9 бубны.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/8 бубны.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/7 бубны.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/6 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/туз бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/король бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/дама бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/валет бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/10 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/9 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/8 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/7 бубны.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/6 бубны.svg"></div>
 </div>
 <div class="cardsString">
-<div class="cardsSolo"><img class="cardsImg" src ="/img/туз крести.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/король крести.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/дама крести.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/валет крести.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/10 крести.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/9 крести.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/8 крести.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/7 крести.svg"></div>
-<div class="cardsSolo"><img class="cardsImg" src ="/img/6 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/туз крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/король крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/дама крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/валет крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/10 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/9 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/8 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/7 крести.svg"></div>
+<div class="cardsSolo"><img class="cardsImg" src ="./img/6 крести.svg"></div>
 </div>
 </div>
 </div>
