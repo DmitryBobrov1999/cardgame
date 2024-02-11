@@ -8,7 +8,7 @@ ____
 https://dmitrybobrov1999.github.io/cardgame/
 ____
 
-<h2 style="text-decoration: none">Задачи проекта:</h2>
+<h2 style="underline: none">Задачи проекта:</h2>
 
 * Реализовать логику выбора сложности.
 * Реализовать логику выбора и сравнения карточек.
